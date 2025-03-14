@@ -1,0 +1,8 @@
+.footer {
+    background-color: darkgoldenrod;
+    color: #FFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+}

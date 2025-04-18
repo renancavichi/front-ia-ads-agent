@@ -1,12 +1,15 @@
 'use client'
 
 import Message from "@/components/Message";
+import { useAuthStore } from "@/stores/authStore";
 import { useState, useEffect } from "react";
 
 export default function Chat() {
 
   const [chat, setChat] = useState([])
   const [message, setMessage] = useState('ola')
+
+  const { changeUserName } = useAuthStore()
 
   useEffect(() => {
     const getMessages = async () => {
@@ -44,6 +47,8 @@ export default function Chat() {
       <div className="fixed bottom-6 mx-auto bg-zinc-700 flex items-center justify-center p-4 rounded-lg text-white text-center gap-2">
         <textarea value={message} onChange={(e) => setMessage(e.target.value)} className="w-[600px] border border-zinc-900 rounded p-2 resize-none"></textarea>
         <button style={styles.button} onClick={handleSubmit}>Enviar</button>
+
+        <button onClick={() => changeUserName('jose')}>Mudar userName para José!</button>
       </div>
     </>
   );
